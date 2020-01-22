@@ -1,0 +1,33 @@
+#include<iostream>
+using namespace std;
+
+int main(){
+    int t;
+    cin>>t;
+    
+    while(t){
+        int a,b,curr,count_now,count;
+        cin>>a;
+        cin>>b;
+        curr=abs(a-b);
+        count=0;
+        while(curr!=0){
+            count_now = 0;
+                count_now = 0;
+                count_now = curr/5;
+                curr = curr%5;
+                count = count + count_now;
+                count_now = 0;
+                count_now = curr/2;
+                curr = curr%2;
+                count = count + count_now;
+                count_now = 0;
+                count_now = curr/1;
+                curr = curr%1;
+                count = count + count_now;
+        }
+        cout<<count<<endl;
+        t--;
+    }
+    return 0;
+}
