@@ -1,0 +1,30 @@
+#include<iostream>
+using namespace std;
+
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int a,b;
+        int re= -1;
+        cin >> a>>b;
+        if(a==b){
+            re=0;
+        }
+        else if(a<b && abs(a-b)%2==0){
+            re = 2;
+        }
+        else if(a<b && abs(a-b)%2==1){
+            re =1;
+        }
+        else if(a>b && abs(a-b)%2==0){
+            re =1;
+        }
+        else if(a>b && abs(a-b)%2 ==1){
+            re = 2;
+        }
+        cout<<re<<endl;
+    }
+    
+    return 0;
+}
