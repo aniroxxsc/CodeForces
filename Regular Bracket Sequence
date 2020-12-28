@@ -1,0 +1,52 @@
+#include<iostream>
+using namespace std;
+
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        string s;
+        bool b=false, bq=false,excep=false;
+        int open=0,close=0,ques=0;
+        cin>>s;
+        int c;
+        c = s.size();
+        for(int i=0;i<c;i++){
+            if(s[i]=='(' && b==false){
+                b=true;
+                open++;
+            }
+            if(s[i]=='C' && b!=false){
+                open++;
+            }
+            if(s[i]==')' && (b==false && bq==false)){
+                excep=true;
+                break;
+            }
+            if(s[i]==')' && (b==false && bq==true)){
+                close++;
+            }
+            if(s[i]==')' && b!=false){
+                close++;
+            }
+            if(s[i]=='?' && i==0){
+                ques++;
+                bq=true;
+            }
+            if(s[i]=='?' && i!=0){
+                ques++;
+            }
+            if(i==c-1 &&s[i]=='('){
+                excep=true;
+            }
+        }
+        if(excep==false &&((open==close && ques%2==0) || (open+ques==close) || (open==close+ques))){
+            cout<<"YES"<<endl;
+        }
+        else{
+            cout<<"NO"<<endl;
+        }
+        //cout<<open<<" "<<close<<" "<<ques<<endl;
+    }
+    return 0;
+}
