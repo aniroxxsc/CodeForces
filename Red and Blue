@@ -1,0 +1,28 @@
+#include<iostream>
+#include<algorithm>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n,max_r=0,sum=0;
+        cin>>n;
+        int red[n];
+        for(int i=0;i<n;i++){
+            cin>>red[i];
+            sum=sum+red[i];
+            max_r=max(sum,max_r);
+        }
+        int m;
+        cin>>m;
+        int blue[m],max_b=0;
+        sum=0;
+        for(int i=0;i<m;i++){
+            cin>>blue[i];
+            sum=sum+blue[i];
+            max_b=max(sum,max_b);
+        }
+        cout<<max_b+max_r<<endl;
+    }
+    return 0;
+}
