@@ -1,0 +1,68 @@
+#include<iostream>
+using namespace std;
+
+int c(int count){
+    int temp;
+    int re=0;
+    temp =count;
+    if(temp>=3){
+        re += temp/3;
+        temp = temp%3;
+    }
+    if(temp >=2){
+        re += temp/2;
+        temp = temp%2;
+    }
+    re +=temp;
+    return re;
+}
+
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        long long n,m;
+        cin>>n>>m;
+        long long temp=n;
+        long long count=0;
+        if(n==m){
+            cout<<0<<endl;
+        }
+        else if(n>m){
+            count==0;
+            while(temp>m){
+                if(temp%2==0){
+                    temp = temp>>1;
+                    count++;
+                }
+                else{
+                    break;
+                }
+            }
+            if(temp==m){
+                count = c(count);
+                cout<<count<<endl;
+            }
+            else{
+                cout<<-1<<endl;
+            }
+            count=0;
+        }
+        if(n<m){
+            count=0;
+            while(temp<m){
+                temp = temp<<1;
+                count++;
+            }
+            if(temp==m){
+                count = c(count);
+                cout<<count<<endl;
+            }
+            else{
+                cout<<-1<<endl;
+            }
+            count=0;
+        }
+    }
+    return 0;
+}
