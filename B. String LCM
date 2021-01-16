@@ -1,0 +1,63 @@
+#include<iostream>
+#include<algorithm>
+#include<string>
+using namespace std;
+
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        string s1,s2;
+        cin>>s1;
+        cin>>s2;
+        
+            int m;
+            string re,add;
+            bool b=true;
+            //m= max(s1.size(),s2.size());
+            if(s1.size()>s2.size()){
+                re=s1;
+                add=s1;
+            }
+            else{
+                re=s2;
+                add=s2;
+            }
+            //cout<<re.size()<<" "<<re<<" "<<s1.size()<<" "<<s2.size()<<endl;
+            if(s1.size()>s2.size()){
+                while(re.size()%s2.size()!=0){
+                    re = re +add;
+                    //cout<<re<<" "<<s1.size()<<" "<<s2.size()<<endl;
+                }
+            }
+            else{
+                while(re.size()%s1.size()!=0){
+                    re = re +add;
+                    //cout<<re<<" "<<s1.size()<<" "<<s2.size()<<endl;
+                }
+            }
+            //cout<<re<<" "<<s1<<" "<<s2<<" ";
+            if(add==s1){
+                for(int i=0;i<re.size();i++){
+                    if(re[i]!=s2[i%s2.size()]){
+                        cout<<"-1"<<endl;//<<" "<<re[i]<<" "<<s2[i%s2.size()]<<" "<<i<<endl;
+                        b=false;
+                        break;
+                    }
+                }
+            }
+            else if(add==s2){
+                for(int i=0;i<re.size();i++){
+                    if(re[i]!=s1[i%s1.size()]){
+                        cout<<"-1"<<endl;//<<" "<<re[i]<<" "<<s2[i%s2.size()]<<" "<<i<<endl;
+                        b=false;
+                        break;
+                    }
+                }
+            }
+            if(b==true){
+                cout<<re<<endl;
+            }
+    }
+    return 0;
+}
