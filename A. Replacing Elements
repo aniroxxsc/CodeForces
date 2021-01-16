@@ -1,0 +1,45 @@
+#include<iostream>
+#include<algorithm>
+using namespace std;
+
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n,d;
+        cin>>n>>d;
+        int a[n];
+        int b[n];
+        for(int i=0;i<n;i++){
+            cin>>a[i];
+            b[i]=a[i];
+            //cout<<a[i]<<" ";
+        }
+        //cout<<endl;
+        sort(b,b+n);
+        /*for(int i=0;i<n;i++){
+            cout<<b[i]<<" ";
+        }*/
+        for(int i=0;i<n;i++){
+            if(b[i]>d){
+                if(i!=0 && i!=1){
+                    b[i] = b[0]+b[1];
+                }
+            }
+        }
+        int re=0;
+        for(int i=0;i<n;i++){
+            if(b[i]<=d){
+                re++;
+                //cout<<b[i]<<" ";
+            }
+        }
+        if(re==n){
+            cout<<"YES"<<endl;
+        }
+        else{
+            cout<<"NO"<<endl;
+        }
+    }
+    return 0;
+}
