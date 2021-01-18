@@ -1,0 +1,105 @@
+#include<iostream>
+#include<set>
+#include<algorithm>
+using namespace std;
+
+
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n,m;
+        cin>>n>>m;
+        char c[n];
+        for(int i=0;i<n;i++){
+            cin>>c[i];
+        }
+        int sufmax[n+1];
+    int sufmin[n+1],sufval[n+1];
+    int premax[n+1],premin[n+1],preval[n+1];
+    int val[n+1];
+    int x=0,mi=0,ma=0;
+    for(int i=0;i<n+1;i++){
+        sufmax[i]=0;
+        sufmin[i]=0;
+        premax[i]=0;
+        premin[i]=0;
+        preval[i]=0;
+        sufval[i]=0;
+        val[0]=0;
+        if(i<=n && i>0 && c[i-1]=='+'){
+            x++;
+            val[i]=x;
+        }
+        else if(i<=n && i>0 && c[i-1]=='-'){
+            x--;
+            val[i]=x;
+        }
+    }
+    x=0;
+    for(int i=1;i<n+1;i++){
+        if(c[i-1]=='-'){
+            x--;
+            if(x<mi){
+                mi=x;
+            }
+        }
+        else if(c[i-1]=='+'){
+            x++;
+            if(x>ma){
+                ma=x;
+            }
+        }
+        sufval[i]=x;
+        sufmax[i]=ma;
+        sufmin[i]=mi;
+    }
+    x=0;
+    ma=0;
+    mi=0;
+    for(int i=1;i<n+1;i++){
+        if(c[n-i]=='-'){
+            x++;
+            if(x>ma){
+                ma=x;
+            }
+        }
+        else if(c[n-i]=='+'){
+            x--;
+            if(x<mi){
+                mi=x;
+            }
+        }
+        preval[i]=x;
+        premax[i]=ma;
+        premin[i]=mi;
+    }
+    /*for(int i=0;i<=n;i++){
+        cout<<sufmax[i]<<" ";
+    }
+    cout<<endl;
+    for(int i=0;i<=n;i++){
+        cout<<sufmin[i]<<" ";
+    }
+    cout<<endl;
+    for(int i=0;i<=n;i++){
+        cout<<premax[i]<<" ";
+    }
+    cout<<endl;
+    for(int i=0;i<=n;i++){
+        cout<<premin[i]<<" ";
+    }
+    cout<<endl;
+    for(int i=0;i<=n;i++){
+        cout<<preval[i]<<" ";
+    }*/
+    cout<<endl;
+        while(m--){
+            int l,r;
+            cin>>l>>r;
+            cout<<(max(sufmax[l-1],sufval[l-1]-preval[n-r]+premax[n-r])-min(sufmin[l-1],(sufval[l-1]-preval[n-r]+premin[n-r])))+1<<endl;
+        }
+    }
+    return 0;
+}
+
