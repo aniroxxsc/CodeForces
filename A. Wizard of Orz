@@ -1,0 +1,33 @@
+#include<iostream>
+using namespace std;
+ 
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        char a[n];
+        int number=9;
+        if(n>=1){
+            a[0]=57;
+            cout<<a[0];
+        }
+        if(n>=2){
+            a[1]=56;
+            cout<<a[1];
+        }
+        if(n>2){
+            for(int i=2;i<n;i++){
+                a[i]=char(48+number);
+                number++;
+                if(number==10){
+                    number=0;
+                }
+                cout<<a[i];
+            }
+        }
+        cout<<endl;
+    }
+    return 0;
+}
