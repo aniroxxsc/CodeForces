@@ -1,0 +1,45 @@
+#include<iostream>
+using namespace std;
+
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        int a[n],b[n];
+        for(int i=0;i<n;i++){
+            cin>>a[i];
+        }
+        int diff[n];
+        int temp=0;
+        string re="YES";
+        bool d=true,c=true;
+        for(int i=0;i<n;i++){
+            cin>>b[i];
+            diff[i]=b[i]-a[i];
+        }
+        for(int i=0;i<n;i++){
+            //cout<<diff[i]<<"hi ";
+            if(a[i]>b[i]){
+                re="NO";
+                break;
+            }
+            if(d==true && temp==0 && diff[i]!=0){
+                temp = diff[i];
+                d=false;
+            }
+            if(d==false){
+                if(temp!=diff[i]){
+                    c=false;
+                }
+                if(c==false && diff[i]!=0){
+                    re="NO";
+                    break;
+                }
+            }
+        }
+        cout<<re<<endl;
+    }
+    return 0;
+}
