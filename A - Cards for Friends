@@ -1,0 +1,29 @@
+#include<iostream>
+#include<math.h>
+using namespace std;
+
+int solve(int q){
+    int re=1;
+    while(q%2==0){
+        re=re*2;
+        q=q/2;
+    }
+    return re;
+}
+
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int w,h,n;
+        cin>>w>>h>>n;
+        if(solve(w)*solve(h) >= n){
+            cout<<"YES"<<endl;
+        }
+        else{
+            cout<<"NO"<<endl;
+        }
+        //cout<<solve(w)<<" "<<solve(h)<<endl;
+    }
+    return 0;
+}
