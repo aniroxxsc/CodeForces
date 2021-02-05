@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+
+int solve(int arr[],int n, int ans[]){
+    int index=0, max=0,score;
+    for(int i=n-1;i>-1;i--){
+        index=i+arr[i];
+        score=arr[i];
+        if(index>=n){
+            if(max<score){
+                max=score;
+            }
+        }
+        else if(index<n){
+            score +=ans[index];
+            if(max<score){
+                max=score;
+            }
+        }
+        ans[i]=score;
+        //cout<<ans[i]<<" ";
+    }
+    return max;
+}
+
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        int arr[n];
+        int ans[n];
+        for(int i=0;i<n;i++){
+            cin>>arr[i];
+            ans[i]=-1;
+        }
+        cout<<solve(arr,n,ans)<<endl;
+    }
+    return 0;
+}
