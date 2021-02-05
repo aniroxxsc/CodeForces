@@ -1,0 +1,41 @@
+#include<iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main(){
+    long long t;
+    cin>>t;
+    while(t--){
+        long long n;
+        cin>>n;
+        long long arr[n];
+        for(int i=0;i<n;i++){
+            cin>>arr[i];
+        }
+        sort(arr,arr+n, greater<long long>());
+        long long score=0;
+        for(int i=0;i<n;i++){
+            if(i%2==0){
+                if(arr[i]%2==0){
+                    score +=arr[i];
+                }
+            }
+            else{
+                if(arr[i]%2==1){
+                    score -=arr[i];
+                }
+            }
+        }
+        if(score==0){
+            cout<<"Tie"<<endl;
+        }
+        else if(score>0){
+            cout<<"Alice"<<endl;
+        }
+        else if(score<0){
+            cout<<"Bob"<<endl;
+        }
+    }
+    return 0;
+}
