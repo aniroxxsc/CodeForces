@@ -1,0 +1,25 @@
+#include<iostream>
+#include<algorithm>
+using namespace std;
+
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        long long n,m,x;
+        cin>>n>>m>>x;
+        long long x1,y1;
+        x1 = x/n;
+        if(x%n != 0) {
+            x1++;
+            y1 = x%(n);
+            //cout<<y1<<"hi";
+        }
+        else {
+            y1 = n;
+            //cout << y1 << "no";
+        }
+        cout<<((y1-1)*m) + x1<<endl;
+    }
+    return 0;
+}
