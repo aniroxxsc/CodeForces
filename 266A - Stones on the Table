@@ -1,0 +1,16 @@
+#include<iostream>
+
+int main(){
+    int n;
+    std::cin>>n;
+    std::string s;
+    std::cin>>s;
+    int ans=0;
+    for(int i=1;i<s.size();i++){
+        if(s[i-1] ==s[i]){
+            ans++;
+        }
+    }
+    std::cout<<ans<<std::endl;
+    return 0;
+}
