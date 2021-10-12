@@ -1,0 +1,18 @@
+#include<iostream>
+#include<cctype>
+
+std::string cap(std::string s){
+    std::string re = s;
+    if(re.size()!=0){
+        re[0] = toupper(re[0]);
+    }
+    return re;
+}
+
+int main(){
+    std::string s,re;
+    std::cin>>s;
+    re = cap(s);
+    std::cout<<re<<std::endl;
+    return 0;
+}
